@@ -51,7 +51,7 @@ jobs:
       - name: 🚀Deploy to server
         run: |
           ssh root@${{ secrets.VDS_IP }} 'docker rm -f lessons;\
-          docker pull michaellazebny/lessons:${{ steps.vars.outputs.sha_short }};\
+          docker pull michaellazebny/lessons:latest;\
           cd lessons/infrastructure && docker-compose up --build -d;\
           exit;' -y
       
