@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    runs-on: ubuntu-22.04
-    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -35,9 +35,6 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.4
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }} 
-
-      - name: 🤗Add to known hosts
-        run: ssh-keyscan -H ${{ secrets.VDS_IP }} >> ~/.ssh/known_hosts     
 
       - name: 🥳Sync directories
         run: rsync -a . . root@${{ secrets.VDS_IP }}:/root/lessons
