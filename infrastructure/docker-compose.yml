@@ -17,7 +17,9 @@ services:
       - "8765:8080"
     environment:
       - PORT=8080
-    image: michaellazebny/lessons:latest
+    build: 
+      context: ../
+      dockerfile: Dockerfile
     container_name: lessons
     restart: unless-stopped
 
