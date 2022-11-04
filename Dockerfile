@@ -12,7 +12,7 @@ RUN dart compile exe bin/server.dart -o bin/server
 
 # Build minimal serving image from AOT-compiled `/server`
 # and the pre-built AOT-runtime in the `/runtime/` directory of the base image.
-FROM scratch
+FROM alpine:3.15
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/bin/
 
