@@ -40,7 +40,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.VDS_IP }} >> ~/.ssh/known_hosts     
 
       - name: 🥳Sync directories
-        run: rsync -a . . root@${{ secrets.VPS_IP }}:/root/lessons
+        run: rsync -a . . root@${{ secrets.VDS_IP }}:/root/lessons
 
       - name: 🚀Deploy to server
         run: |
