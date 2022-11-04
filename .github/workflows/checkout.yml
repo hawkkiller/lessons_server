@@ -36,8 +36,6 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_KEY }} 
 
-      
-
       - name: 🤗Add to known hosts
         run: |
           export INFO=ssh-keyscan -H ${{ secrets.VDS_IP }}
