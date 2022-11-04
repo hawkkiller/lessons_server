@@ -1,0 +1,5 @@
+lessons.themisha.dev {
+    reverse_proxy lessons:8765 {
+      flush_interval 10
+    }
+}

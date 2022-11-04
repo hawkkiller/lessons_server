@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy_data:/data
+      - ./caddy_config:/config
+      - ./caddy_config/Caddyfile:/etc/caddy/Caddyfile
+
+  lessons:
+    ports:
+      - "8765:8080"
+    environment:
+      - PORT=8080
+    image: michaellazebny/lessons:latest
+    container_name: lessons
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:

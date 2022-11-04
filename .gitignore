@@ -4,3 +4,8 @@
 
 # Conventional directory for build output.
 build/
+/infracture/caddy_config/
+!/infracture/caddy_config/Caddyfile
+/infracture/caddy_data/
+!/infracture/caddy_data/.gitkeep
+
