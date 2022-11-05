@@ -1,5 +1,9 @@
 lessons.themisha.dev {
-    reverse_proxy lessons:8080 {
-      flush_interval -1
-    }
+  {
+    email miskadl09@gmail.com
+  }
+  
+  reverse_proxy lessons:8080 {
+    flush_interval -1
+  }
 }
