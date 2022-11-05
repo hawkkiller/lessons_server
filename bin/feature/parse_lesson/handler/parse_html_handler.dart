@@ -24,6 +24,8 @@ Future<Response> parseLessonHandler(Request req) async {
     }
 
     final lesson = decoded['textHtml'] as String?;
+    final from = decoded['from'] as String?;
+    final title = decoded['title'] as String?;
 
     if (lesson == null) {
       throw BadRequest(
@@ -33,10 +35,13 @@ Future<Response> parseLessonHandler(Request req) async {
     }
     final doc = parser.parse(lesson);
 
-    final importantData = doc.body?.text.split('.').take(2).join('. ') ?? '';
+    final content = doc.body?.text.split('.').take(2).join('. ') ?? '';
+
     return Response.ok(
       json.encode({
-        'data': importantData.trim(),
+        'content': content.trim(),
+        'from': from != null ? 'От: $from' : '',
+        'title': title ?? '',
       }),
       headers: {
         'Content-Type': 'application/json',
