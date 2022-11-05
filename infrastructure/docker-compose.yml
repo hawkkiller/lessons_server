@@ -13,6 +13,7 @@ services:
       - ./caddy_config/Caddyfile:/etc/caddy/Caddyfile
     networks:
       - shared
+      - global
 
   lessons:
     ports:
@@ -28,6 +29,7 @@ services:
 networks:
   shared:
     driver: bridge
+  global:
 
 volumes:
   caddy_data:
