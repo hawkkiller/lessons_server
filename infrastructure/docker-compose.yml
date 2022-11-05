@@ -11,6 +11,8 @@ services:
       - ./caddy_data:/data
       - ./caddy_config:/config
       - ./caddy_config/Caddyfile:/etc/caddy/Caddyfile
+    networks:
+      - shared
 
   lessons:
     ports:
@@ -20,6 +22,12 @@ services:
     image: michaellazebny/lessons:latest
     container_name: lessons
     restart: unless-stopped
+    networks:
+      - shared
+
+networks:
+  shared:
+    driver: bridge
 
 volumes:
   caddy_data:
