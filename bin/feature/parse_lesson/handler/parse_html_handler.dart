@@ -35,7 +35,7 @@ Future<Response> parseLessonHandler(Request req) async {
     }
     final doc = parser.parse(lesson);
 
-    final content = doc.body?.text.split('.').take(2).join('. ') ?? '';
+    final content = doc.body?.text.split('.').take(5).join('. ') ?? '';
 
     return Response.ok(
       json.encode({
